@@ -1,0 +1,46 @@
+{
+  "newUserInformation": {
+    "USER-1": {
+      "name": "test",
+      "email": "mahmut@gmail.com",
+      "gender": "male",
+      "status": "active"
+    },
+    "USER-2": {
+      "name": "test",
+      "email": "kemalcan1@gmail.com",
+      "gender": "male",
+      "status": "active"
+    },
+    "USER-3": {
+      "name": "test",
+      "email": "yasemin1@gmail.com",
+      "gender": "female",
+      "status": "active"
+    },
+    "USER-4": {
+      "name": "test",
+      "email": "esra1@gmail.com",
+      "gender": "female",
+      "status": "active"
+    },
+    "USER-5": {
+      "name": "test",
+      "email": "gizem1@gmail.com",
+      "gender": "female",
+      "status": "active"
+    },
+    "USER-6": {
+      "name": "test",
+      "email": "ipek1@gmail.com",
+      "gender": "female",
+      "status": "active"
+    },
+    "USER-7": {
+      "name": "test",
+      "email": "ali1@gmail.com",
+      "gender": "male",
+      "status": "active"
+    }
+  }
+}
