@@ -28,6 +28,7 @@ public class ClickOperation {
 
     public void selectFromDropDownList(By by, String text) {
 
+        waitOperation.wait(3);
         Select docList = new Select(webDriver.findElement(by));
         docList.selectByVisibleText(text);
         logMessage = String.format("'%s' is selected from '%s'", text, by);
