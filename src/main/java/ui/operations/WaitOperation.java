@@ -16,7 +16,7 @@ public class WaitOperation {
     public void wait(int second) {
 
         try {
-            Thread.sleep(second);
+            Thread.sleep(second * 1000);
         } catch (Exception e) {
         }
         logMessage = String.format(" Waited %s second(s)", second);
