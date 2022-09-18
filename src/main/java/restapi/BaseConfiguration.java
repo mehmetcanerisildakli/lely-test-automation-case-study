@@ -1,7 +1,5 @@
 package restapi;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.Properties;
 
 public class BaseConfiguration {
@@ -23,14 +21,4 @@ public class BaseConfiguration {
         return this.configFile.getProperty(key);
     }
 
-    public void setProperty(String key, String value) {
-
-        this.configFile.setProperty(key, value);
-
-        try {
-            configFile.store(new FileOutputStream("base.properties"), null);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

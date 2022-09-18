@@ -4,9 +4,9 @@ import java.io.File;
 
 public class Util {
 
-    public static String getProperty(String property, boolean addEnv) {
+    static BaseConfiguration baseConfiguration = new BaseConfiguration();
 
-        BaseConfiguration baseConfiguration = new BaseConfiguration();
+    public static String getProperty(String property, boolean addEnv) {
 
         if (addEnv)
             return baseConfiguration.getProperty(Util.getEnvironment() + "-" + property);
@@ -15,8 +15,6 @@ public class Util {
     }
 
     public static String getEnvironment() {
-
-        BaseConfiguration baseConfiguration = new BaseConfiguration();
 
         if (System.getProperty("env") != null)
             return System.getProperty("env");

@@ -3,10 +3,8 @@ package steps.ui;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import ui.locators.Locators;
 import ui.operations.*;
-import ui.utilities.DriverManager;
 
 public class StepManager {
     private final ClickOperation clickOperation;

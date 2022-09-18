@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import ui.utilities.DriverManager;
 
 public class SendKeyOperation {
+
     private String logMessage = "";
     private final WebDriver webDriver;
 

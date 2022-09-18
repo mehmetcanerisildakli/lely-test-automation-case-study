@@ -9,6 +9,7 @@ import ui.utilities.DriverManager;
 import java.util.List;
 
 public class AssertionOperation {
+
     private String logMessage = "";
     private final WebDriver webDriver;
 

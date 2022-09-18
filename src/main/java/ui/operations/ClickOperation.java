@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import ui.utilities.DriverManager;
 
 public class ClickOperation {
+
     private String logMessage = "";
     private final WebDriver webDriver;
     private final WaitOperation waitOperation;

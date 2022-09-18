@@ -9,6 +9,7 @@ import ui.utilities.DriverManager;
 import java.io.File;
 
 public class MainOperation {
+
     private String logMessage = "";
     private final WebDriver webDriver;
     private final WaitOperation waitOperation;

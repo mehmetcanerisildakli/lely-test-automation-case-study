@@ -8,6 +8,7 @@ import ui.utilities.DriverManager;
 
 
 public class ScrollOperation {
+
     private String logMessage = "";
     private final WebDriver webDriver;
     private final WaitOperation waitOperation;

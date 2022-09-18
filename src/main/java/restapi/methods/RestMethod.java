@@ -16,6 +16,7 @@ public class RestMethod {
     static String token = Util.getToken();
     static Response getResponse = null;
     static Response postResponse = null;
+
     public static void listUserId() {
 
         RestAssured.baseURI = baseURI;

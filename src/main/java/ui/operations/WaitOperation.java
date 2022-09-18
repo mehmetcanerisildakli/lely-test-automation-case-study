@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import ui.utilities.DriverManager;
 
 public class WaitOperation {
+
     private String logMessage = "";
     private final WebDriver webDriver;
 

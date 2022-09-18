@@ -1,7 +1,6 @@
 package restapi;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
 import restapi.objects.UserInfo;
@@ -17,7 +16,7 @@ public class ReadData extends Datas {
     public static void readTestData() {
 
         try {
-            objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            objectMapper = new ObjectMapper();
             dataMap = new HashMap<>();
             String jsonTemp = objectMapper.readTree(readJsonData()).get("newUserInformation").toString();
             dataMap = objectMapper.readValue(jsonTemp, new TypeReference<HashMap<String, UserInfo>>() {
@@ -27,19 +26,11 @@ public class ReadData extends Datas {
         }
     }
 
-    public static JSONObject  getTestData(String filter) {
+    public static JSONObject getTestData(String filter) {
 
         if (dataMap == null)
             readTestData();
         testData = new JSONObject(dataMap.get(filter));
         return testData;
-    }
-
-    public static JSONObject getTestData() {
-        return testData;
-    }
-
-    public static void setTestData(JSONObject testData) {
-        ReadData.testData = testData;
     }
 }
