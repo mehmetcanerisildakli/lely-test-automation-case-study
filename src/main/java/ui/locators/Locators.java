@@ -6,9 +6,9 @@ import java.util.HashMap;
 
 public class Locators {
 
-    private static HashMap<String, By> PageLocators;
+    private HashMap<String, By> PageLocators;
 
-    public static HashMap<String, By> getPageLocators() {
+    public HashMap<String, By> getPageLocators() {
 
         if (PageLocators == null)
             PageLocators = new HashMap<String, By>();
@@ -19,11 +19,11 @@ public class Locators {
         return PageLocators;
     }
 
-    private static void addId(String key, By value) {
+    private void addId(String key, By value) {
         PageLocators.put(key, value);
     }
 
-    private static void initPageLocators() {
+    private void initPageLocators() {
 
         /*Lely-WebSite-Needed-Locators*/
         addId("acceptCookies",By.xpath("//*[@id='cookienotice-button-accept']"));

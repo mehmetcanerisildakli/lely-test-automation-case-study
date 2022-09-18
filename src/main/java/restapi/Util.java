@@ -4,17 +4,17 @@ import java.io.File;
 
 public class Util {
 
-    static BaseConfiguration baseConfiguration = new BaseConfiguration();
+    BaseConfiguration baseConfiguration = new BaseConfiguration();
 
-    public static String getProperty(String property, boolean addEnv) {
+    public String getProperty(String property, boolean addEnv) {
 
         if (addEnv)
-            return baseConfiguration.getProperty(Util.getEnvironment() + "-" + property);
+            return baseConfiguration.getProperty(getEnvironment() + "-" + property);
         else
             return baseConfiguration.getProperty(property);
     }
 
-    public static String getEnvironment() {
+    public String getEnvironment() {
 
         if (System.getProperty("env") != null)
             return System.getProperty("env");
@@ -22,23 +22,23 @@ public class Util {
             return baseConfiguration.getProperty("env");
     }
 
-    public static String getURL() {
+    public String getURL() {
 
         if (System.getProperty("URL") != null)
             return System.getProperty("URL");
         else
-            return Util.getProperty("URL", true);
+            return getProperty("URL", true);
     }
 
-    public static String getToken() {
+    public String getToken() {
 
         if (System.getProperty("TOKEN") != null)
             return System.getProperty("TOKEN");
         else
-            return Util.getProperty("TOKEN", true);
+            return getProperty("TOKEN", true);
     }
 
-    public static String getFilePath(String filePath) {
+    public String getFilePath(String filePath) {
 
         String OS = System.getProperty("os.name");
         String result;

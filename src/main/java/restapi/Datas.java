@@ -12,16 +12,17 @@ public class Datas {
 
     static ObjectMapper objectMapper;
     static StringBuilder contentBuilder;
+    Util util = new Util();
 
-    static String readJsonData() {
+    String readJsonData() {
 
         String dataFileName;
         String dataFilePath;
         String filePath;
 
-        dataFileName = Util.getProperty("DATA", true);
+        dataFileName = util.getProperty("DATA", true);
 
-        filePath = Util.getFilePath(Util.getProperty("path", false));
+        filePath = util.getFilePath(util.getProperty("path", false));
 
         dataFilePath = System.getProperty("user.dir") + filePath + dataFileName;
 

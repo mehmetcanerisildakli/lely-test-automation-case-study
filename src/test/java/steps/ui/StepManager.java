@@ -7,61 +7,54 @@ import ui.locators.Locators;
 import ui.operations.*;
 
 public class StepManager {
-    private final ClickOperation clickOperation;
-    private final ScrollOperation scrollOperation;
-    private final SendKeyOperation sendKeyOperation;
-    private final AssertionOperation assertionOperation;
-    private final MainOperation mainOperation;
 
+    private final ClickOperation clickOperation = new ClickOperation();
+    private final ScrollOperation scrollOperation = new ScrollOperation();
+    private final SendKeyOperation sendKeyOperation = new SendKeyOperation();
+    private final AssertionOperation assertionOperation = new AssertionOperation();
+    private final MainOperation mainOperation = new MainOperation();
+    private final Locators locators = new Locators();
 
-    public StepManager() {
-
-        clickOperation = new ClickOperation();
-        scrollOperation = new ScrollOperation();
-        sendKeyOperation = new SendKeyOperation();
-        assertionOperation = new AssertionOperation();
-        mainOperation = new MainOperation();
-    }
 
     @And("^Click (.*)$")
     public void clickElement(String key) {
 
-        By locator = Locators.getPageLocators().get(key);
+        By locator = locators.getPageLocators().get(key);
         clickOperation.click(locator);
     }
 
     @Then("^Check whether (.*) is opened$")
     public void checkWhetherSearchBoxIsOpened(String key) {
 
-        By locator = Locators.getPageLocators().get(key);
+        By locator = locators.getPageLocators().get(key);
         assertionOperation.assertIsPresent(locator);
     }
 
     @And("^Enter (.*) into (.*)")
     public void enterTextIntoSearchBox(String text, String key) {
 
-        By locator = Locators.getPageLocators().get(key);
+        By locator = locators.getPageLocators().get(key);
         sendKeyOperation.sendKey(text, locator);
     }
 
     @And("^Select (.*) from (.*)")
     public void selectFromDropDownList(String text, String key) {
 
-        By locator = Locators.getPageLocators().get(key);
+        By locator = locators.getPageLocators().get(key);
         clickOperation.selectFromDropDownList(locator, text);
     }
 
     @Then("^Check (.*) have (.*)$")
     public void checkSearchResultTextsHaveText(String key, String text) {
 
-        By locator = Locators.getPageLocators().get(key);
+        By locator = locators.getPageLocators().get(key);
         assertionOperation.containsText(locator, text);
     }
 
     @Then("^Check (.*) is present$")
     public void checkElementIsPresent(String key) {
 
-        By locator = Locators.getPageLocators().get(key);
+        By locator = locators.getPageLocators().get(key);
         assertionOperation.assertIsPresent(locator);
     }
 
@@ -74,7 +67,7 @@ public class StepManager {
     @And("^Get attribute (.*) from (.*)$")
     public void getDocumentLink(String attribute, String key) {
 
-        By locator = Locators.getPageLocators().get(key);
+        By locator = locators.getPageLocators().get(key);
         mainOperation.getAttribute(locator, attribute);
     }
 
@@ -93,7 +86,7 @@ public class StepManager {
     @And("^Scroll to (.*)$")
     public void scrollTo(String key) {
 
-        By locator = Locators.getPageLocators().get(key);
+        By locator = locators.getPageLocators().get(key);
         scrollOperation.scrollToElement(locator);
     }
 }

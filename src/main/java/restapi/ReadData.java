@@ -10,10 +10,10 @@ import java.util.HashMap;
 
 public class ReadData extends Datas {
 
-    private static HashMap<String, UserInfo> dataMap;
-    private static JSONObject testData;
+    private HashMap<String, UserInfo> dataMap;
+    private JSONObject testData;
 
-    public static void readTestData() {
+    public void readTestData() {
 
         try {
             objectMapper = new ObjectMapper();
@@ -26,7 +26,7 @@ public class ReadData extends Datas {
         }
     }
 
-    public static JSONObject getTestData(String filter) {
+    public JSONObject getTestData(String filter) {
 
         if (dataMap == null)
             readTestData();

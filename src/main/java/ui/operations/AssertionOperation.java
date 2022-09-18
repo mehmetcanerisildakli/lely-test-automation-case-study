@@ -35,7 +35,7 @@ public class AssertionOperation {
             if (!element.getText().toLowerCase().contains(expectedText.toLowerCase())) {
                 logMessage = String.format("'%s' does not contain '%s'", elements, element);
                 System.out.println(logMessage);
-                Assert.fail();
+                Assert.fail("One of the text does not have the keyword");
             }
         }
         System.out.println(logMessage);
@@ -46,7 +46,7 @@ public class AssertionOperation {
         if (!expectedValue.equals(actualValue)) {
             logMessage = String.format("'%s' and '%s' are not equal!", expectedValue, actualValue);
             System.out.println(logMessage);
-            Assert.fail();
+            Assert.fail(logMessage);
         }
         logMessage = String.format("'%s' and '%s' have been checked", expectedValue, actualValue);
         System.out.println(logMessage);

@@ -12,12 +12,14 @@ import static io.restassured.RestAssured.given;
 
 public class RestMethod {
 
-    static String baseURI = Util.getURL();
-    static String token = Util.getToken();
-    static Response getResponse = null;
-    static Response postResponse = null;
+    Util util = new Util();
 
-    public static void listUserId() {
+    String baseURI = util.getURL();
+    String token = util.getToken();
+    Response getResponse = null;
+    Response postResponse = null;
+
+    public void listUserId() {
 
         RestAssured.baseURI = baseURI;
 
@@ -31,7 +33,7 @@ public class RestMethod {
                 .extract().response();
     }
 
-    public static void checkUserDigit() {
+    public void checkUserDigit() {
 
         List<Object> idList = getResponse.jsonPath().getList("data.id");
         for (Object id : idList) {
@@ -39,7 +41,7 @@ public class RestMethod {
         }
     }
 
-    public static void postUser(JSONObject userData, int expectedStatusCode) {
+    public void postUser(JSONObject userData, int expectedStatusCode) {
 
         RestAssured.baseURI = baseURI;
 
@@ -55,7 +57,7 @@ public class RestMethod {
                 .extract().response();
     }
 
-    public static void checkCreatedUser(JSONObject userData) {
+    public void checkCreatedUser(JSONObject userData) {
 
         Assert.assertEquals(userData.get("name"), postResponse.getBody().jsonPath().get("data.name"));
         Assert.assertEquals(userData.get("email"), postResponse.getBody().jsonPath().get("data.email"));
@@ -63,7 +65,7 @@ public class RestMethod {
         Assert.assertEquals(userData.get("status"), postResponse.getBody().jsonPath().get("data.status"));
     }
 
-    public static void checkResponseBody(String expectedMessage) {
+    public void checkResponseBody(String expectedMessage) {
         Assert.assertEquals(expectedMessage, postResponse.getBody().jsonPath().get("data[0].message"));
     }
 

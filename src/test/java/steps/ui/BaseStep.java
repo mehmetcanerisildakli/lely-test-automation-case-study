@@ -11,7 +11,7 @@ public class BaseStep {
 
     private WebDriver webDriver;
     private final DriverManager driver;
-    final static String baseURL = "https://www.lely.com/";
+    final String baseURL = "https://www.lely.com/";
 
     public BaseStep() {
         driver = new DriverManager();

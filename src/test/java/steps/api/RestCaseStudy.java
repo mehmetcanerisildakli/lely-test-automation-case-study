@@ -8,28 +8,31 @@ import restapi.methods.RestMethod;
 
 public class RestCaseStudy {
 
+    RestMethod restMethod = new RestMethod();
+    ReadData readData = new ReadData();
+
     @Given("Send GET request to list all users")
     public void SendGETRequestToListAllUsers() {
-        RestMethod.listUserId();
+        restMethod.listUserId();
     }
 
     @Then("Check all users with proper digits")
     public void checkAllUsersHaveProperDigits() {
-        RestMethod.checkUserDigit();
+        restMethod.checkUserDigit();
     }
 
     @And("^Send POST request to add a (.*) with expected code (.*)$")
     public void sendPOSTRequestToAddANewUser(String user, int expectedStatusCode) {
-        RestMethod.postUser(ReadData.getTestData(user), expectedStatusCode);
+        restMethod.postUser(readData.getTestData(user), expectedStatusCode);
     }
 
     @Then("^Check new (.*) is created correctly$")
     public void checkNewUserIsCreatedCorrectly(String user) {
-        RestMethod.checkCreatedUser(ReadData.getTestData(user));
+        restMethod.checkCreatedUser(readData.getTestData(user));
     }
 
     @Then("^Check the response (.*)$")
     public void checkTheResponse(String expectedMessage) {
-        RestMethod.checkResponseBody(expectedMessage);
+        restMethod.checkResponseBody(expectedMessage);
     }
 }
